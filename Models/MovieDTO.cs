@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace MovieCatalogExam.Models;
+namespace MovieCatalogExam.Models
 {
     public class MovieDTO
     {
