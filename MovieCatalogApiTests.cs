@@ -98,20 +98,21 @@ namespace MovieCatalogExam
         }
 
         [Test, Order(3)]
-        public void GetAllMovies()
-        {
-            var request = new RestRequest("/api/Catalog/All", Method.Get);
+public void GetAllMovies()
+{
+    var request = new RestRequest("/api/Catalog/All", Method.Get);
+    request.AddHeader("Authorization", $"Bearer {token}");
 
-            var response = client.Execute(request);
+    var response = client.Execute(request);
 
-            Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
-            Assert.That(response.Content, Is.Not.Null.And.Not.Empty);
+    Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
+    Assert.That(response.Content, Is.Not.Null.And.Not.Empty);
 
-            var movies = JsonConvert.DeserializeObject<List<MovieDTO>>(response.Content!);
+    var movies = JsonConvert.DeserializeObject<List<MovieDTO>>(response.Content);
 
-            Assert.That(movies, Is.Not.Null);
-            Assert.That(movies!.Count, Is.GreaterThan(0));
-        }
+    Assert.That(movies, Is.Not.Null);
+    Assert.That(movies!.Count, Is.GreaterThan(0));
+}
 
         [Test, Order(4)]
         public void DeleteMovie()
