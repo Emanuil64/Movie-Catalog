@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net;
-using MovieCatalogExam.DTOs;
+using MovieCatalogExam.Models;
 
 namespace MovieCatalogExam
 {
